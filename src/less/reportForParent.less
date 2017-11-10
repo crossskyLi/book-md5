@@ -1,5 +1,26 @@
-@bw:20rem;
-html {
-  //font-size: 20 / @bw;
-  //width: @bw;
+.reportForParent{
+  .banner{
+    height: 186px;
+    background: url("../images/backgroundSquare2.png") repeat;
+  }
+  //background: red;
+  .el-row{
+    border: 1px solid #ccc;
+    border-bottom:none ;
+    height: 50px;
+    .el-col{
+      height: 100%;
+      border-right: 1px solid #cccccc;
+    }
+    .el-col:last-of-type{
+      border-right: none;
+    }
+    div{
+      height: 100%;
+
+    }
+  }
+  .el-row:last-of-type{
+    border-bottom: 1px solid #ccc;
+  }
 }

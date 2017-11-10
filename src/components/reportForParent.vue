@@ -1,33 +1,38 @@
 <template>
-  <div class="reportForParent">
-    <el-button @click="showStudentList">显示列表</el-button>
-    <el-row>
-      <el-col :span="4"><div>排名</div></el-col>
-      <el-col :span="5"><div>学生姓名</div></el-col>
-      <el-col :span="5"><div>阅读时间</div></el-col>
-      <el-col :span="5"><div>阅读率</div></el-col>
-      <el-col :span="5">
-        <div>
-          评价
-        </div>
-      </el-col>
-    </el-row>
-    <el-row v-for="student in studentList">
-      <el-col :span="4"><div>{{student.index}}</div></el-col>
-      <el-col :span="5"><div>{{student.studentName}}</div></el-col>
-      <el-col :span="5"><div>{{student.readingTime}}</div></el-col>
-      <el-col :span="5"><div>{{student.rate}}</div></el-col>
-      <el-col :span="5">
-        <div>
-            <p>{{student.tipStr[0]}}</p>
-            <p>{{student.tipStr[1]}}</p>
-        </div>
-      </el-col>
-    </el-row>
-    <!--<el-container>-->
-      <!--<el-main>-->
 
-        <!--<el-table
+  <div class="reportForParent">
+    <div class="banner">
+
+    </div>
+    <el-container>
+      <el-main>
+        <el-button @click="showStudentList">显示列表</el-button>
+        <el-row>
+          <el-col :span="4"><div class="border">排名</div></el-col>
+          <el-col :span="5"><div>学生姓名</div></el-col>
+          <el-col :span="5"><div>阅读时间</div></el-col>
+          <el-col :span="5"><div>阅读率</div></el-col>
+          <el-col :span="5"><div>评价</div></el-col>
+        </el-row>
+        <el-row v-for="student in studentList">
+          <el-col :span="4"><div>{{student.index}}</div></el-col>
+          <el-col :span="5"><div>{{student.studentName}}</div></el-col>
+          <el-col :span="5"><div>{{student.readingTime}}</div></el-col>
+          <el-col :span="5"><div>{{student.rate}}</div></el-col>
+          <el-col :span="5">
+            <div>
+              <p>{{student.tipStr[0]}}</p>
+              <p>{{student.tipStr[1]}}</p>
+            </div>
+          </el-col>
+        </el-row>
+      </el-main>
+    </el-container>
+
+    <el-container>
+      <el-main>
+
+        <el-table
           :data="studentList"
           border
           max-height="250">
@@ -61,10 +66,10 @@
               <p>{{scope.row.tipStr[1]}}</p>
             </template>
           </el-table-column>
-        </el-table>-->
+        </el-table>
 
-      <!--</el-main>-->
-    <!--</el-container>-->
+      </el-main>
+    </el-container>
   </div>
 
 </template>
@@ -96,5 +101,7 @@
     }
   }
 </script>
-
+<style lang="less" scoped>
+  @import "../less/reportForParent.less";
+</style>
 
