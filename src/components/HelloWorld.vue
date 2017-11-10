@@ -2,35 +2,46 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
-    <a href="#/sparkMd5">跳一下</a>
+    <a href='#/sparkMd5'>sparkmd5</a>
+    <el-button @click="goTransition">内置动画</el-button>
+    <el-button @click="goReportForParent">去报告</el-button>
     <div class="md5-box">
       测试一下会不会互通
     </div>
-    <!--<ul>-->
-    <!--<li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>-->
-    <!--<li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>-->
-    <!--<li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>-->
-    <!--<li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>-->
-    <!--<br>-->
-    <!--<li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>-->
-    <!--</ul>-->
-    <!--<h2>Ecosystem</h2>-->
-    <!--<ul>-->
-    <!--<li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>-->
-    <!--<li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>-->
-    <!--<li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>-->
-    <!--<li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>-->
-    <!--</ul>-->
+
+    <el-button @click="goBack">返回</el-button>
+    <el-button @click="show">按一下</el-button>
+    <transition name="el-fade-in">
+      <div v-show="isShow" class="transition-box">.el-fade-in-linear</div>
+    </transition>
+    <transition name="el-fade-in">
+      <div v-show="isShow" class="transition-box">.el-fade-in</div>
+    </transition>
   </div>
 </template>
 
 <script>
-  import SparkMD5 from 'spark-md5'
+  //  import SparkMD5 from 'spark-md5'
   export default {
-    name: 'HelloWorld',
+    name: 'helloWorld',
     data () {
       return {
-        msg: '计算md5'
+        msg: '计算md5',
+        isShow: true
+      }
+    },
+    methods: {
+      goTransition: function () {
+        this.$router.push({path:'/myTransition'})
+      },
+      goReportForParent:function(){
+        this.$router.push({path:'/reportForParent'})
+      },
+      show: function () {
+        this.isShow = !this.isShow
+      },
+      goBack: function () {
+        this.$router.go(-1)
       }
     }
   }

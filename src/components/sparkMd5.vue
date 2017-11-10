@@ -1,12 +1,22 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <a href="#/hello">跳回去</a>
+    <a href="#/">跳回去</a>
     <div class="md5-box test">
-      <input type="file">
+      <input type="file" multiple=true>
       <button @click="doConsole">点一下打印</button>
     </div>
 
+
+
+    <el-button @click="goBack">返回</el-button>
+    <el-button @click="show">按一下</el-button>
+    <transition name="el-fade-in">
+      <div v-show="isShow" class="transition-box">.el-fade-in-linear</div>
+    </transition>
+    <transition name="el-fade-in">
+      <div v-show="isShow" class="transition-box">.el-fade-in</div>
+    </transition>
   </div>
 </template>
 
@@ -17,12 +27,25 @@
     name: 'sparkMd5',
     data () {
       return {
-        msg: '上传目的'
+        msg: '上传目的',
+        isShow: true
       }
     },
     methods: {
       doConsole: function () {
         console.log(SparkMD5)
+      },
+      show: function () {
+        this.isShow = !this.isShow;
+        this.$notify({
+          title: 'It works!',
+          type: 'success',
+          message: 'We\'ve laid the ground work for you. It\'s time for you to build something epic!',
+          duration: 5000
+        })
+      },
+      goBack: function () {
+        this.$router.go(-1)
       }
     }
   }
