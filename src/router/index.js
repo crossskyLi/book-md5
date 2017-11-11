@@ -4,8 +4,10 @@ import HelloWorld from '@/components/HelloWorld'
 import sparkMd5 from '@/components/sparkMd5'
 import myTransition from '@/components/myTransition'
 import reportForParent from '@/components/reportForParent'
-import  '@/less/var.less'
-Vue.use(Router)
+import lifeCycle  from '@/components/lifeCycle'
+const lazyLoad = resolve =>require(['@/components/lazy-load'], resolve);
+
+Vue.use(Router);
 
 export default new Router({
   routes: [
@@ -33,6 +35,16 @@ export default new Router({
       path: '/reportForParent',
       name: 'reportForParent',
       component: reportForParent
+    },
+    {
+      path: '/lifeCycle',
+      name: 'lifeCycle',
+      component: lifeCycle
+    },
+    {
+      path: '/lazyLoad',
+      name: 'lazy-load',
+      component: lazyLoad
     }
   ]
 })

@@ -3,25 +3,17 @@
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <a href='#/sparkMd5'>sparkmd5</a>
+    <a href='#/lifeCycle'>去liftCycle</a>
     <el-button @click="goTransition">内置动画</el-button>
     <el-button @click="goReportForParent">去报告</el-button>
     <div class="md5-box">
       测试一下会不会互通
     </div>
-
-    <el-button @click="goBack">返回</el-button>
-    <el-button @click="show">按一下</el-button>
-    <transition name="el-fade-in">
-      <div v-show="isShow" class="transition-box">.el-fade-in-linear</div>
-    </transition>
-    <transition name="el-fade-in">
-      <div v-show="isShow" class="transition-box">.el-fade-in</div>
-    </transition>
   </div>
 </template>
 
 <script>
-  //  import SparkMD5 from 'spark-md5'
+  import lifeCycle from './lifeCycle'
   export default {
     name: 'helloWorld',
     data () {
@@ -32,10 +24,10 @@
     },
     methods: {
       goTransition: function () {
-        this.$router.push({path:'/myTransition'})
+        this.$router.push({path: '/myTransition'})
       },
-      goReportForParent:function(){
-        this.$router.push({path:'/reportForParent'})
+      goReportForParent: function () {
+        this.$router.push({name: 'reportForParent',query: { plan: 'private' }})
       },
       show: function () {
         this.isShow = !this.isShow

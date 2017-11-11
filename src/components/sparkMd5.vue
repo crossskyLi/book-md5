@@ -7,8 +7,6 @@
       <button @click="doConsole">点一下打印</button>
     </div>
 
-
-
     <el-button @click="goBack">返回</el-button>
     <el-button @click="show">按一下</el-button>
     <transition name="el-fade-in">
@@ -22,7 +20,6 @@
 
 <script>
   import SparkMD5 from 'spark-md5';
-  import '../common/less/sparkMd5/sparkMd5.less'
   export default {
     name: 'sparkMd5',
     data () {
