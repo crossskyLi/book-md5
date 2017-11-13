@@ -1,9 +1,14 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <a href='#/sparkMd5'>sparkmd5</a>
-    <a href='#/lifeCycle'>去liftCycle</a>
+    <h1 class="text-center">{{ msg }}</h1>
+    <a href='#/sparkMd5'>sparkmd5</a><br/>
+    <br/>
+    <a href='#/lifeCycle'>去liftCycle</a><br/>
+    <br/>
+    <a href='#/lazyLoad'>lazyLoad</a><br/>
+    <br/>
+    <a href='#/myVuex'>myVuex</a><br/>
+    <br/>
     <el-button @click="goTransition">内置动画</el-button>
     <el-button @click="goReportForParent">去报告</el-button>
     <div class="md5-box">
@@ -18,7 +23,7 @@
     name: 'helloWorld',
     data () {
       return {
-        msg: '计算md5',
+        msg: 'hello world',
         isShow: true
       }
     },
