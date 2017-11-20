@@ -4,9 +4,10 @@ import Router from 'vue-router';
 import HelloWorld from '@/components/HelloWorld';
 import sparkMd5 from '@/components/sparkMd5';
 import myTransition from '@/components/myTransition';
-import reportForParent from '@/components/reportForParent';
+import reportForParent from '@/pages/reportForParent';
 import lifeCycle from '@/components/lifeCycle';
 import myVuex from '@/components/myVuex';
+
 var lazyLoad = function lazyLoad(resolve) {
   return require(['@/components/lazy-load'], resolve);
 };

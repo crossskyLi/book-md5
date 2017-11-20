@@ -15,6 +15,8 @@
       }
     },
     beforeCreate: function () {
+      let httpResult = this.toast('消息');
+      console.log(httpResult)
       console.group('beforeCreate 创建前状态===============》');
       console.log("%c%s", "color:red", "el     : ", this.$el); //undefined
       console.log("%c%s", "color:red", "data   : ", this.$data); //undefined
@@ -34,6 +36,7 @@
       console.log("%c%s", "color:red", "message: ", this.message); //已被初始化
     },
     mounted: function () {
+//      console.log(this.$httpGet())
       console.group('mounted 挂载结束状态===============》');
       console.log("%c%s", "color:red", "el     : ", this.$el); //已被初始化
       console.log(this.$el);

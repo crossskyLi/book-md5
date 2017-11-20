@@ -32,7 +32,7 @@
         this.$router.push({path: '/myTransition'})
       },
       goReportForParent: function () {
-        this.$router.push({name: 'reportForParent',query: { plan: 'private' }})
+        this.$router.push({name: 'reportForParent'})
       },
       show: function () {
         this.isShow = !this.isShow

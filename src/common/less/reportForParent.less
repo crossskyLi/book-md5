@@ -1,67 +1,164 @@
+
+p{
+  height:22px;
+  line-height:22px;
+}
+
 .reportForParent {
+  .bannerText {
+    position:absolute;
+    top:0;
+    width:100%;
+    background-color:rgba(0,0,0,0.6);
+    .bannerMid{
+      display:flex;
+      justify-content: space-between;
+      align-items :center;
+      width:90%;
+      margin:0 auto;
+      p{
+        font-size:12px;
+        color:#fdb883;
+      }
+      .el-icon-close{
+        width: 18px;
+        height: 18px;
+        line-height:18px;
+        border-radius: 50%;
+        background-color:#000;
+        opacity: 0.6;
+        color:#fff;
+        font-size:18px;
+        text-align:center;
+      }
+    }
+  }
   .banner {
-    height: 186px;
+    height: 222px;
     background: url('../../images/backgroundLeftCorner.png') 0 0 no-repeat,
     url('../../images/backgroundRightCorner.png') right 0 no-repeat,
+    url("../../images/great.png") center 70px no-repeat,
     url("../../images/backgroundSquare2.png") repeat;
-    background-size: 100px 88px, 108px 88px, auto;
-    h1,h3{
-      color: #fae7b8;
-      text-align: center;
-    }
-    h1 {
-      padding-top: 58px;
-      font-size: 30px;
-      font-weight: bold;
-    }
+    background-size: 100px 88px, 108px 88px, 105px 34px, auto;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10;
     h3 {
       text-align: center;
-      line-height: 78px;
-      height: 78px;
+      color: #fae7b8;
+      line-height: 70px;
+      height: 70px;
+      font-size:15px;
+      padding-top:90px;
     }
     .bottom {
-      width: 116px ;
+      width: 100%;
       text-align: center;
       margin: 0 auto;
       position: relative;
+      opacity:0.6;
       span{
         height: 1px;
-        width: 115px;
-        background: #f3b4a1;
+        width: 30%;
+        background: #fff;
         position: absolute;
-        top: 50%;
+        top: 30%;
         margin: -1px 0 0 0 ;
       }
       span:first-of-type{
-        left: -115px;
+        left: 0;
       }
       span:last-of-type{
-        right: -115px;
+        right: 0;
       }
       p{
         font-size: 14px;
-        color:#f3b4a1;
+        color:#fff;
+      }
+    }
+    .weekBox{
+      height: 40px;
+      background-color:#f4f4f4;
+      display:flex;
+      justify-content:space-around;
+      align-items: center;
+      .week{
+        height: 40px;
+        line-height:40px;
+        font-size:16px;
+        color:#333;
+      }
+      .icongray{
+        opacity:.5;
+      }
+    }
+    .weekBoxFixed{
+      width:100%;
+      position:fixed;
+      top:0;
+    }
+
+  }
+  .content{
+    .table{
+      display:table;
+      border-width:0;
+      width:100%;
+      .tableRowth{
+        display:table-row;
+        background-color: #e5e5e5;
+        width:100%;
+        .tableCell{
+          border-color: #e5e5e5;
+          height:24px;
+          line-height:24px;
+        }
+        p{
+          font-size:12px;
+          text-align:center;
+          color:#a7abbb;
+        }
+      }
+      .tableRow{
+        height:60px;
+        display:table-row;
+        .tableCell{
+
+          border-bottom:1px solid #e6e6e6;
+        }
+        .tableCell:first-child{
+          border-bottom:none;
+          color: #999;
+        }
+        .tableCell:last-child{
+          padding-right: 10px;
+          font-size:12px;
+          color: #999;
+        }
+        .tableCellColor{
+          color: #ff6a06 !important;
+        }
+      }
+      .tableCell{
+        font-size:16px;
+        display:table-cell;
+        border-width:0;
+        vertical-align: middle;
+      }
+      .tableRowth+div{
+        background-color:#F8EEC1;
+        .tableCell{
+          border-bottom:none;
+        }
       }
     }
   }
-  //background: red;
-  .el-row {
-    border: 1px solid #ccc;
-    border-bottom: none;
-    height: 50px;
-    .el-col {
-      height: 100%;
-      border-right: 1px solid #cccccc;
+  .tableHeader{
+    position: fixed;
+    top:40px;
+    .headerhidden{
+      visibility: hidden;
     }
-    .el-col:last-of-type {
-      border-right: none;
-    }
-    div {
-      height: 100%;
-
-    }
-  }
-  .el-row:last-of-type {
-    border-bottom: 1px solid #ccc;
   }
 }
