@@ -6,11 +6,13 @@
     <a href='#/lifeCycle'>去liftCycle</a><br/>
     <br/>
     <a href='#/lazyLoad'>lazyLoad</a><br/>
+    <a href='#/eCharts'>eCharts</a><br/>
     <br/>
     <a href='#/myVuex'>myVuex</a><br/>
+    <a href='#/mintUI'>mintUI</a><br/>
     <br/>
-    <el-button @click="goTransition">内置动画</el-button>
-    <el-button @click="goReportForParent">去报告</el-button>
+    <button @click="goTransition">内置动画</button>
+    <button @click="goReportForParent">去报告</button>
     <div class="md5-box">
       测试一下会不会互通
     </div>
@@ -18,7 +20,7 @@
 </template>
 
 <script>
-  import lifeCycle from './lifeCycle'
+  import lifeCycle from '../components/lifeCycle'
   export default {
     name: 'helloWorld',
     data () {
@@ -32,7 +34,7 @@
         this.$router.push({path: '/myTransition'})
       },
       goReportForParent: function () {
-        this.$router.push({name: 'reportForParent'})
+        this.$router.push({name: 'reportForParent',query: { userId:1521}})
       },
       show: function () {
         this.isShow = !this.isShow

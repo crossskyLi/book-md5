@@ -1,0 +1,153 @@
+p {
+  height: 22px;
+  line-height: 22px;
+}
+.reportForParent .bannerText {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.reportForParent .bannerText .bannerMid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+.reportForParent .bannerText .bannerMid p {
+  font-size: 12px;
+  color: #fdb883;
+}
+.reportForParent .bannerText .bannerMid .el-icon-close {
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0.6;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+}
+.reportForParent .banner {
+  height: 182px;
+  background: url("../../images/sogreat.png") center 40px no-repeat;
+  background-size: 80px 22px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+.reportForParent .banner h3 {
+  text-align: center;
+  color: #666;
+  line-height: 80px;
+  height: 70px;
+  font-size: 15px;
+  padding-top: 50px;
+}
+.reportForParent .banner .bottom {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  opacity: 0.8;
+}
+.reportForParent .banner .bottom span {
+  height: 1px;
+  width: 25%;
+  background: #d1d1d1;
+  position: absolute;
+  top: 50%;
+  margin: -1px 0 0 0;
+}
+.reportForParent .banner .bottom span:first-of-type {
+  left: 3%;
+}
+.reportForParent .banner .bottom span:last-of-type {
+  right: 3%;
+}
+.reportForParent .banner .bottom p {
+  font-size: 14px;
+  color: #d1d1d1;
+}
+.reportForParent .banner .weekBox {
+  height: 40px;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.reportForParent .banner .weekBox .week {
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  color: #333;
+}
+.reportForParent .banner .weekBox .icongray {
+  opacity: .5;
+}
+.reportForParent .banner .weekBoxFixed {
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+.reportForParent .content .table {
+  display: table;
+  border-width: 0;
+  width: 100%;
+}
+.reportForParent .content .table .tableRowth {
+  display: table-row;
+  background-color: #e5e5e5;
+  width: 100%;
+}
+.reportForParent .content .table .tableRowth .tableCell {
+  border-color: #e5e5e5;
+  height: 24px;
+  line-height: 24px;
+}
+.reportForParent .content .table .tableRowth p {
+  font-size: 12px;
+  text-align: center;
+  color: #a7abbb;
+}
+.reportForParent .content .table .tableRow {
+  height: 50px;
+  display: table-row;
+}
+.reportForParent .content .table .tableRow .tableCell {
+  border-bottom: 1px solid #e6e6e6;
+}
+.reportForParent .content .table .tableRow .tableCell:first-child {
+  border-bottom: none;
+  color: #999;
+}
+.reportForParent .content .table .tableRow .tableCell:last-child {
+  padding-right: 10px;
+  font-size: 12px;
+  color: #999;
+}
+.reportForParent .content .table .tableRow .tableCellColor {
+  color: #ff6a06 !important;
+}
+.reportForParent .content .table .tableCell {
+  font-size: 16px;
+  display: table-cell;
+  border-width: 0;
+  vertical-align: middle;
+}
+.reportForParent .content .table .tableRowth + div {
+  background-color: #F8EEC1;
+}
+.reportForParent .content .table .tableRowth + div .tableCell {
+  border-bottom: none;
+}
+.reportForParent .tableHeader {
+  position: fixed;
+  top: 40px;
+}
+.reportForParent .tableHeader .headerhidden {
+  visibility: hidden;
+}

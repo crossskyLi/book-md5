@@ -25,7 +25,7 @@ p{
         height: 18px;
         line-height:18px;
         border-radius: 50%;
-        background-color:#000;
+        background-color:rgba(0,0,0,0.6);
         opacity: 0.6;
         color:#fff;
         font-size:18px;
@@ -34,47 +34,53 @@ p{
     }
   }
   .banner {
-    height: 222px;
-    background: url('../../images/backgroundLeftCorner.png') 0 0 no-repeat,
-    url('../../images/backgroundRightCorner.png') right 0 no-repeat,
-    url("../../images/great.png") center 70px no-repeat,
-    url("../../images/backgroundSquare2.png") repeat;
-    background-size: 100px 88px, 108px 88px, 105px 34px, auto;
+    height: 182px;
+    // background: url('../../images/backgroundLeftCorner.png') 0 0 no-repeat,//初版
+    // url('../../images/backgroundRightCorner.png') right 0 no-repeat,
+    // background: url("../../images/great.png") center 70px no-repeat;
+    background: url("../../images/sogreat.png") center 40px no-repeat;
+    background-size: 80px 22px;
+    // url("../../images/backgroundSquare2.png") repeat;
+    // background-size: 100px 88px, 108px 88px, 105px 34px, auto;
     left: 0;
     top: 0;
     width: 100%;
     z-index: 10;
     h3 {
       text-align: center;
-      color: #fae7b8;
-      line-height: 70px;
+      // color: #fae7b8;//初版
+      color: #666;
+      line-height: 80px;
       height: 70px;
       font-size:15px;
-      padding-top:90px;
+      // padding-top:90px;
+      padding-top:50px;
     }
     .bottom {
       width: 100%;
       text-align: center;
       margin: 0 auto;
       position: relative;
-      opacity:0.6;
+      opacity:0.8;
       span{
         height: 1px;
-        width: 30%;
-        background: #fff;
+        width: 25%;
+        // background: #fff;初版
+        background: #d1d1d1;
         position: absolute;
-        top: 30%;
+        top: 50%;
         margin: -1px 0 0 0 ;
       }
       span:first-of-type{
-        left: 0;
+        left: 3%;
       }
       span:last-of-type{
-        right: 0;
+        right: 3%;
       }
       p{
         font-size: 14px;
-        color:#fff;
+        // color:#fff;初版
+        color:#d1d1d1;
       }
     }
     .weekBox{
@@ -98,7 +104,7 @@ p{
       position:fixed;
       top:0;
     }
-
+    
   }
   .content{
     .table{
@@ -121,7 +127,7 @@ p{
         }
       }
       .tableRow{
-        height:60px;
+        height:50px;
         display:table-row;
         .tableCell{
 

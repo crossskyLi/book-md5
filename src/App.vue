@@ -14,5 +14,4 @@
 <style lang="less">
   @import 'common/less/base.less';
   @import 'common/less/var.less';
-
 </style>

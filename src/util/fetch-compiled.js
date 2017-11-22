@@ -4,7 +4,7 @@ import qs from 'qs';
 
 // axios 配置
 axios.defaults.timeout = 5000;
-axios.defaults.baseURL = 'http://192.168.0.41:3600/';
+axios.defaults.baseURL = 'http://116.62.8.201:3600/';
 
 //POST传参序列化
 axios.interceptors.request.use(function (config) {

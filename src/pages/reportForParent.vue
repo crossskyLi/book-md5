@@ -2,13 +2,14 @@
 
   <div class="reportForParent">
     <div class="banner">
-      <div class="bannerText" v-show="bannerShow? true:false">
+      <div class="bannerText" v-show="bannerShow">
         <div class="bannerMid">
           <p>专家表明：3-6年级学生每天阅读时间至少15分钟</p>
           <i class="el-icon-close" @click="bannerClose"></i>
         </div>
       </div>
-      <h3>您的孩子击败了{{parseInt(((total-tetUser.index)/total)*100)}}%的同学，继续加油！</h3>
+      <h3 v-if="retUserNull">您的孩子击败了0%的同学</h3>
+      <h3 v-else>您的孩子击败了{{parseInt(((total-retUser.index)/total)*100)}}%的同学</h3>
       <div class="bottom">
         <span></span>
         <p>每周日24时结算</p>
@@ -27,7 +28,7 @@
     <div class="content">
       <!-- 表格头部固定 -->
       <!-- 两个一样的表格来实现头部和内容的样式区分 -->
-      <div id="headerFixed" v-show="headerFixed == false" :class="headerFixed == false ? 'table' : 'table tableHeader'">
+      <div id="headerFixed" :class="headerFixed == false ? 'table' : 'table tableHeader'">
         <div class="tableRowth">
           <div class="tableCell">
             <p>排名</p>
@@ -45,31 +46,23 @@
           </div>
         </div>
         <div class="tableRow">
-          <div :class="tetUser.index < 4 ? 'tableCell tableCellColor' : 'tableCell'">
-            <p >{{tetUser.index}}</p>
+          <div :class="retUser.index < 4 ? 'tableCell tableCellColor' : 'tableCell'">
+            <p >{{retUser.index}}</p>
           </div>
-          <!-- <div :class="tetUser.index < 4 ? 'tableCell' : 'tableCell tableCellColor'">
-            <p>{{tetUser.index}}</p>
-          </div> -->
           <div class="tableCell">
-            <p>{{tetUser.realName}}</p>
+            <p>{{retUser.realName}}</p>
           </div>
           <div class="tableCell">
             <p>
-              {{tetUser.timeStr}}
+              {{retUser.timeStr}}
             </p>
           </div>
           <div class="tableCell" >
-            <p>{{tetUser.completionRate}}</p>
+            <p>{{retUser.completionRate}}</p>
           </div>
-          <div :class="tetUser.time < 5400000 ? 'tableCell tableCellColor' : 'tableCell'">
-            <div v-if="tetUser.time < 5400000">
-              <p>别气馁</p>
+          <div :class="retUser.time < 5400000 ? 'tableCell' : 'tableCell tableCellColor'">
+            <div v-if="retUser.time < 5400000">
               <p>加油！</p>
-            </div>
-            <div v-else-if="tetUser.time < 6300000">
-              <p>相信你</p>
-              <p>会更好</p>
             </div>
             <div v-else>
               <p>真棒！</p>
@@ -91,14 +84,9 @@
           <div class="tableCell">
             <p>{{student.completionRate}}</p>
           </div>
-          <div :class="student.time < 5400000 ? 'tableCell tableCellColor' : 'tableCell'">
+          <div :class="student.time < 5400000 ? 'tableCell' : 'tableCell tableCellColor'">
             <div v-if="student.time < 5400000">
-              <p>别气馁</p>
               <p>加油！</p>
-            </div>
-            <div v-else-if="student.time < 6300000">
-              <p>相信你</p>
-              <p>会更好</p>
             </div>
             <div v-else>
               <p>真棒！</p>
@@ -107,7 +95,7 @@
         </div>
       </div>
       <!-- 表格内容 -->
-      <div class="table" v-show="headerFixed != false">
+      <div class="table" v-show="tableShow">
         <div class="tableRowth">
           <div class="tableCell">
             <p>排名</p>
@@ -125,30 +113,25 @@
           </div>
         </div>
         <div class="tableRow">
-          <div :class="tetUser.index < 4 ? 'tableCell tableCellColor' : 'tableCell'">
+          <div :class="retUser.index < 4 ? 'tableCell tableCellColor' : 'tableCell'">
             <p>
-              {{tetUser.index}}
+              {{retUser.index}}
             </p>
           </div>
           <div class="tableCell">
-            <p>{{tetUser.name}}</p>
+            <p>{{retUser.realName}}</p>
           </div>
           <div class="tableCell">
             <p>
-              {{tetUser.timeStr}}
+              {{retUser.timeStr}}
             </p>
           </div>
           <div class="tableCell">
-            <p>{{tetUser.completionRate}}</p>
+            <p>{{retUser.completionRate}}</p>
           </div>
-          <div :class="tetUser.time < 5400000 ? 'tableCell tableCellColor' : 'tableCell'">
-            <div v-if="tetUser.time < 5400000">
-              <p>别气馁</p>
+          <div :class="retUser.time < 5400000 ? 'tableCell' : 'tableCell tableCellColor'">
+            <div v-if="retUser.time < 5400000">
               <p>加油！</p>
-            </div>
-            <div v-else-if="tetUser.time < 6300000">
-              <p>相信你</p>
-              <p>会更好</p>
             </div>
             <div v-else>
               <p>真棒！</p>
@@ -170,14 +153,9 @@
           <div class="tableCell">
             <p>{{student.completionRate}}</p>
           </div>
-          <div :class="student.time < 5400000 ? 'tableCell tableCellColor' : 'tableCell'">
+          <div :class="student.time < 5400000 ? 'tableCell' : 'tableCell tableCellColor'">
             <div v-if="student.time < 5400000">
-              <p>别气馁</p>
               <p>加油！</p>
-            </div>
-            <div v-else-if="student.time < 6300000">
-              <p>相信你</p>
-              <p>会更好</p>
             </div>
             <div v-else>
               <p>真棒！</p>
@@ -186,7 +164,8 @@
         </div>
       </div>
     </div>
-    <infinite-loading @infinite="infiniteHandler" v-if="isInfiniteCanWork" :distance="distance" ref="infiniteLoading"></infinite-loading>
+    <infinite-loading @infinite="infiniteHandler" v-if="canLoading" :distance="distance" ref="infiniteLoading">
+    </infinite-loading>
   </div>
 
 </template>
@@ -205,17 +184,27 @@
         distance: 100,
         isNoMore: false,
         list: [],
-        tetUser: [],
+        retUser:{
+          completionRate:"0%",
+          index:0,
+          realName:"无",
+          sno:"",
+          time:0,
+          timeStr:"00:00:00",
+          userId:0
+        },
+        retUserNull:false,
         studentList: [],
         currentPage: 1,
         pageSize: 10,
-        total: "",
-        startTime: "2017.11.06",
-        endTime: "11.12",
-        bannerShow: true,
+        total:0,
+        startTime:"",
+        endTime:"",
+        tableShow: false,
+        bannerShow:true,
         headerFixed: false,
         canClick: false,
-        isInfiniteCanWork:false
+        canLoading: false
       }
     },
 
@@ -224,21 +213,25 @@
 
       params.currentPage = this.currentPage;
       params.pageSize = this.pageSize;
-      if(!params.userId){
+      this.startTime = this.getTime(7);
+      this.endTime = this.getTime(1).substring(5);
+      if (!params.userId) {
         //加提示
         return;
       }
       fetch.getReadingWeeklyReport(params).then(res => {
         this.total = res.total;
         this.tetUser = res.retUser;
-        res.rows.forEach(item =>{
-          item.timeStr = this.readTimeToStr(item.time );
-        });
 
+        res.rows.forEach(item => {
+          item.timeStr = this.timeToStr(item.time);
+        });
         this.studentList = res.rows;
-        this.tetUser.timeStr = this.readTimeToStr(this.tetUser.time);
+        this.tetUser.timeStr = this.timeToStr(this.tetUser.time);
         this.currentPage = 2;
-        this.isInfiniteCanWork = true;
+        this.retUser.timeStr = this.timeToStr(this.retUser.time);
+        this.canLoading = true;
+        this.currentPage = 2;
       }).catch(err => {
         console.log(err)
       });
@@ -250,17 +243,17 @@
     methods:
       {
         infiniteHandler: function ($state) {
-          console.log('执行了吗?')
+
           let params = this.$route.query;
           params.currentPage = this.currentPage;
           params.pageSize = this.pageSize;
           fetch.getReadingWeeklyReport(params).then(res => {
-            if(res.rows.length === 0){
+            if (res.rows.length === 0) {
               $state.complete();
               return;
             }
-            res.rows.forEach(item =>{
-              item.timeStr = this.readTimeToStr(item.time );
+            res.rows.forEach(item => {
+              item.timeStr = this.timeToStr(item.time);
             });
             this.currentPage++;
             this.studentList = this.studentList.concat(res.rows);
@@ -270,7 +263,6 @@
           });
         },
         bannerClose: function () {
-          console.log(this.bannershow )
           this.bannerShow = false
         },
         handleScroll: function () {

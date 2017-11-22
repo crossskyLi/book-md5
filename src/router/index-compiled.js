@@ -1,15 +1,23 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import HelloWorld from '@/components/HelloWorld';
+import HelloWorld from '@/pages/HelloWorld';
 import sparkMd5 from '@/components/sparkMd5';
 import myTransition from '@/components/myTransition';
-import reportForParent from '@/pages/reportForParent';
 import lifeCycle from '@/components/lifeCycle';
 import myVuex from '@/components/myVuex';
 
+var reportForParent = function reportForParent(resolve) {
+  return require(['@/pages/reportForParent'], resolve);
+};
 var lazyLoad = function lazyLoad(resolve) {
   return require(['@/components/lazy-load'], resolve);
+};
+var eCharts = function eCharts(resolve) {
+  return require(['@/pages/eCharts'], resolve);
+};
+var mintUI = function mintUI(resolve) {
+  return require(['@/pages/mintUI'], resolve);
 };
 
 Vue.use(Router);
@@ -44,9 +52,17 @@ export default new Router({
     name: 'lazy-load',
     component: lazyLoad
   }, {
+    path: '/eCharts',
+    name: 'eCharts',
+    component: eCharts
+  }, {
     path: '/myVuex',
     name: 'myVuex',
     component: myVuex
+  }, {
+    path: '/mintUI',
+    name: 'mintUI',
+    component: mintUI
   }]
 });
 
