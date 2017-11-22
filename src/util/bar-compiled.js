@@ -26,6 +26,9 @@ var asyncData = {
 };
 
 export var async = {
+  title: {
+    text: '新的标题'
+  },
   xAxis: {
     data: asyncData.categories
   },

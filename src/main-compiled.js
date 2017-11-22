@@ -14,12 +14,14 @@ import tool from './util/tool';
 import ECharts from 'vue-echarts/components/ECharts.vue';
 //eChart macarons 主题引入
 import 'echarts/theme/macarons';
+//按需引入echarts bar组件
+import 'echarts/lib/chart/bar';
 
 Vue.config.productionTip = false;
 // Vue.use(ElementUI);
-//按钮组件
+//mintUI按钮组件
 Vue.component('mt-btn', _default);
-//图表组件
+//eChart图表组件
 Vue.component('chart', ECharts);
 Vue.use(tool);
 

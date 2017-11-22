@@ -26,6 +26,9 @@ let asyncData = {
 }
 
 export let async = {
+  title: {
+    text: '新的标题'
+  },
   xAxis: {
     data: asyncData.categories
   },

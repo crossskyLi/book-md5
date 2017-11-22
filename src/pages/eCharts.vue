@@ -8,11 +8,6 @@
 </template>
 
 <script>
-
-
-  //按需引入echarts bar组件
-  import 'echarts/lib/chart/bar';
-
   import {initial as barInit, async as barAsync} from '../util/bar'
 
   export default {
