@@ -16,6 +16,16 @@ export let initial = {
     name: '销量',
     smooth: true,
     type: 'bar',
+    itemStyle:{
+      normal:{
+        barBorderRadius:[10,10,0,0],
+        shadowColor: 'rgba(0, 0, 0, 0.7)',
+        shadowBlur: 10,
+        opacity:0.8,
+        // color:'#d48265'
+      }
+
+    },
     data: []
   }]
 }

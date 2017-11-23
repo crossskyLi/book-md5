@@ -2,14 +2,17 @@
 
   <div class="eCharts">
     <chart :options="bar" ref="bar" :theme="polarTheme" auto-resize></chart>
-    <p><button @click="load">Load</button></p>
+    <p><button @click="load">Load bar</button></p>
+
+    <chart :options="scoreRadar" auto-resize></chart>
+    <!--<button @click = 'loadRadar'>load radar</button>-->
   </div>
 
 </template>
 
 <script>
   import {initial as barInit, async as barAsync} from '../util/bar'
-
+  import {scoreRadar as radar} from '../util/radar'
   export default {
     name: 'eChart',
     components: {
@@ -19,6 +22,7 @@
       return {
         loading: true,
         bar: barInit,
+        scoreRadar:radar,
         polarTheme:'macarons'
       }
     },
@@ -61,7 +65,7 @@
             bar.mergeOptions(barAsync)
           }
         }, 1000)
-      }
+      },
     }
   }
 </script>

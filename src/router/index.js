@@ -67,5 +67,11 @@ export default new Router({
       name:'mintUI',
       component:mintUI
     }
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    console.log(to);
+    console.log(from);
+    console.log(savedPosition);
+    return { x: 110, y: 500 }
+  }
 })

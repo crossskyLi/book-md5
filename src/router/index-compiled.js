@@ -63,7 +63,13 @@ export default new Router({
     path: '/mintUI',
     name: 'mintUI',
     component: mintUI
-  }]
+  }],
+  scrollBehavior: function scrollBehavior(to, from, savedPosition) {
+    console.log(to);
+    console.log(from);
+    console.log(savedPosition);
+    return { x: 110, y: 500 };
+  }
 });
 
 //# sourceMappingURL=index-compiled.js.map

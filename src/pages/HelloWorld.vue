@@ -47,7 +47,10 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="less" scoped>
+  .hello{
+    height:2000px;
+  }
   h1, h2 {
     font-weight: normal;
   }
