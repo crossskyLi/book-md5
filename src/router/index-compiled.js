@@ -19,6 +19,15 @@ var eCharts = function eCharts(resolve) {
 var mintUI = function mintUI(resolve) {
   return require(['@/pages/mintUI'], resolve);
 };
+var noChildReport = function noChildReport(resolve) {
+  return require(['@/pages/noChildReport'], resolve);
+};
+var reportRanking = function reportRanking(resolve) {
+  return require(['@/components/reportRanking'], resolve);
+};
+var reportForms = function reportForms(resolve) {
+  return require(['@/components/reportForms'], resolve);
+};
 
 Vue.use(Router);
 
@@ -44,6 +53,10 @@ export default new Router({
     name: 'reportForParent',
     component: reportForParent
   }, {
+    path: '/noChildReport',
+    name: 'noChildReport',
+    component: noChildReport
+  }, {
     path: '/lifeCycle',
     name: 'lifeCycle',
     component: lifeCycle
@@ -68,7 +81,7 @@ export default new Router({
     console.log(to);
     console.log(from);
     console.log(savedPosition);
-    return { x: 110, y: 500 };
+    return { x: 0, y: 0 };
   }
 });
 

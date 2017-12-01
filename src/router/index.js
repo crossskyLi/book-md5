@@ -12,6 +12,9 @@ const reportForParent = resolve =>require(['@/pages/reportForParent'], resolve);
 const lazyLoad = resolve =>require(['@/components/lazy-load'], resolve);
 const eCharts = resolve => require(['@/pages/eCharts'],resolve);
 const mintUI = resolve => require(['@/pages/mintUI'],resolve);
+const noChildReport = resolve =>require(['@/pages/noChildReport'], resolve);
+const reportRanking = resolve =>require(['@/components/reportRanking'], resolve);
+const reportForms = resolve =>require(['@/components/reportForms'], resolve);
 
 Vue.use(Router);
 
@@ -43,6 +46,11 @@ export default new Router({
       component: reportForParent
     },
     {
+      path: '/noChildReport',
+      name: 'noChildReport',
+      component: noChildReport
+    },
+    {
       path: '/lifeCycle',
       name: 'lifeCycle',
       component: lifeCycle
@@ -72,6 +80,6 @@ export default new Router({
     console.log(to);
     console.log(from);
     console.log(savedPosition);
-    return { x: 110, y: 500 }
+    return { x: 0, y: 0 }
   }
 })

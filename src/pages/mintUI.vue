@@ -1,7 +1,6 @@
 <template>
   <div>
-    <mt-btn type="primary" @click="goBack()">返回</mt-btn>
-    <!--<mt-button>mint按钮</mt-button>-->
+    <mt-btn type="primary" @click="goBack">返回</mt-btn>
   </div>
 </template>
 
@@ -19,6 +18,9 @@
     methods: {
       goBack(){
         this.$router.push({name:"helloWorld"})
+      },
+      show(){
+        console.log('123')
       }
     }
   }

@@ -12,15 +12,20 @@ import tool from './util/tool'
 import ECharts from 'vue-echarts/components/ECharts.vue'
 //eChart macarons 主题引入
 import 'echarts/theme/macarons'
-//按需引入echarts bar组件
-import 'echarts/lib/chart/bar';
+//按需引入echarts类型组件
+import 'echarts/lib/chart/line'
+import 'echarts/lib/chart/radar'
 
+//按需引入echarts功能组件
+import 'echarts/lib/component/tooltip'
+import 'echarts/lib/component/title'
+import 'echarts/lib/component/markPoint'
 Vue.config.productionTip = false;
 // Vue.use(ElementUI);
 //mintUI按钮组件
 Vue.component('mt-btn', Button);
 //eChart图表组件
-Vue.component('chart', ECharts);
+Vue.component('eCharts', ECharts);
 Vue.use(tool);
 
 

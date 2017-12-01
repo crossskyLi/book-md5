@@ -1,0 +1,178 @@
+.reportForParent {
+  .bannerText {
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background-color:rgba(0,0,0,0.6);
+    z-index: 10;
+    .bannerMid{
+      display:-webkit-box;
+      display:-ms-flexbox;
+      display:flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align :center;
+      -ms-flex-align :center;
+      align-items :center;
+      width:90%;
+      margin:0 auto;
+      p{
+        font-size:12px;
+        color:#fdb883;
+      }
+      .iconfont{
+        width: 18px;
+        height: 18px;
+        line-height:18px;
+        border-radius: 50%;
+        background-color:rgba(0,0,0,0.6);
+        opacity: 0.6;
+        color:#fff;
+        font-size:18px;
+        text-align:center;
+      }
+    }
+  }
+  .banner {
+    height: 180px;
+    background: url("../../images/sogreat.png") center 40px no-repeat;
+    background-size: 80px 22px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    h3 {
+      text-align: center;
+      color: #666;
+      line-height: 80px;
+      height: 70px;
+      font-size:15px;
+      padding-top:50px;
+    }
+    .bottom {
+      width: 100%;
+      text-align: center;
+      margin: 0 auto;
+      position: relative;
+      opacity:0.8;
+      span{
+        width: 25%;
+        background: #d1d1d1;
+        position: absolute;
+        top: 50%;
+        margin: -1px 0 0 0 ;
+      }
+      span:first-of-type{
+        left: 3%;
+      }
+      span:last-of-type{
+        right: 3%;
+      }
+      p{
+        height: 20px;
+        line-height: 20px;
+        font-size: 14px;
+        color:#d1d1d1;
+      }
+    }
+    .weekBox{
+      height: 40px;
+      background-color:#f4f4f4;
+      display:-webkit-box;
+      display:-ms-flexbox;
+      display:flex;
+      -ms-flex-pack:distribute;
+      justify-content:space-around;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      .week{
+        height: 40px;
+        line-height:40px;
+        font-size:16px;
+        color:#333;
+      }
+      .icongray{
+        opacity: .3;
+      }
+    }
+    .weekBoxFixed{
+      width:100%;
+      position:fixed;
+      top:42px;
+      z-index:10;
+    }
+  }
+  .content{
+    .table{
+      display:table;
+      border-width:0;
+      width:100%;
+      .tableRowth{
+        display:table-row;
+        background-color: #e5e5e5;
+        width:100%;
+        .tableCell{
+          border-color: #e5e5e5;
+          height:24px;
+          line-height:24px;
+        }
+        p{
+          font-size:12px;
+          text-align:center;
+          color:#a7abbb;
+        }
+      }
+      .tableRow{
+        height:50px;
+        display:table-row;
+        .tableCell{
+          position:relative;
+          p{
+            height:20px;
+            line-height: 20px;
+          }
+        }
+        .tableCellHalfPX::after {
+          content: " ";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 1px;
+          background-image: -webkit-gradient(linear, left bottom, left top, color-stop(50%, transparent), color-stop(50%, #eee));
+          background-image: linear-gradient(0deg, transparent 50%, #eee 50%);
+        }
+        .tableCell:first-child{
+          color: #999;
+        }
+        .tableCell:last-child{
+          width:20%;
+          font-size:12px;
+          color: #999;
+        }
+        .tableCellColor{
+          color: #ff6a06 !important;
+        }
+      }
+      .tableCell{
+        font-size:16px;
+        display:table-cell;
+        border-width:0;
+        vertical-align: middle;
+      }
+      .tableRowth+div{
+        background-color:#F8EEC1;
+        .tableCell{
+          border-bottom:none;
+        }
+      }
+    }
+  }
+  .tableHeader{
+    position: fixed;
+    top:82px;
+    z-index:10;
+  }
+}

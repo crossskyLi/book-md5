@@ -3,8 +3,8 @@ import qs from 'qs'
 
 // axios 配置
 axios.defaults.timeout = 5000;
-axios.defaults.baseURL = 'http://116.62.8.201:3600/';
-
+// axios.defaults.baseURL = 'http://116.62.8.201:3600/';
+axios.defaults.baseURL = 'http://192.168.0.41:3600/';//测试服
 //POST传参序列化
 axios.interceptors.request.use((config) => {
   // if(config.method  === 'post'){
@@ -63,10 +63,17 @@ export function fetchMulti(requestArr) {
 
 export default {
   /**
-   * 用户登录
+   * 学生阅读排名
    */
   getReadingWeeklyReport(params) {
     return fetch('get', '/reading/getReadingWeeklyReport', params)
+  },
+
+  /**
+   * 学生阅读数据分析
+   */
+  getReadingAnalysis(params) {
+    return fetch('get', '/reading/getReadingAnalysis', params)
   },
 
   /**

@@ -34,7 +34,7 @@
         this.$router.push({path: '/myTransition'})
       },
       goReportForParent: function () {
-        this.$router.push({name: 'reportForParent',query: { userId:1521}})
+        this.$router.push({name: 'reportForParent',query: { userId:718}})
       },
       show: function () {
         this.isShow = !this.isShow
