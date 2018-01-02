@@ -19,24 +19,24 @@ export let allDayBarInitial = {
         width: 0.5,
         color:"#9b9b9b"
       },
-      z:0
     },
+    axisPointer:{z:0},
     formatter: function (params) {
-      var res='<div><p>'+params[0].name+'</p></div>'
+      var res='<div><p>'+params[0].name+'</p></div>' 
       for(var i=0;i<params.length;i++){
         res+='<p>'+params[i].data+'分钟'+'</p>'
       }
       return res;
-    },
+    }, 
   },
   xAxis: {
     type: 'category',
     boundaryGap: false,
     axisLabel:{
       interval: 3,
-      textStyle:{
+      textStyle:{  
         fontSize: 10,
-        color:"#9b9b9b"
+        color:"#9b9b9b"  
       }
     },
     axisPointer:{

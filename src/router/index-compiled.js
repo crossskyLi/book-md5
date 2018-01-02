@@ -1,32 +1,16 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import HelloWorld from '@/pages/HelloWorld';
+import HelloWorld from '@/components/HelloWorld';
 import sparkMd5 from '@/components/sparkMd5';
 import myTransition from '@/components/myTransition';
+import reportForParent from '@/pages/reportForParent';
+import noChildReport from '@/pages/noChildReport';
 import lifeCycle from '@/components/lifeCycle';
 import myVuex from '@/components/myVuex';
 
-var reportForParent = function reportForParent(resolve) {
-  return require(['@/pages/reportForParent'], resolve);
-};
 var lazyLoad = function lazyLoad(resolve) {
   return require(['@/components/lazy-load'], resolve);
-};
-var eCharts = function eCharts(resolve) {
-  return require(['@/pages/eCharts'], resolve);
-};
-var mintUI = function mintUI(resolve) {
-  return require(['@/pages/mintUI'], resolve);
-};
-var noChildReport = function noChildReport(resolve) {
-  return require(['@/pages/noChildReport'], resolve);
-};
-var reportRanking = function reportRanking(resolve) {
-  return require(['@/components/reportRanking'], resolve);
-};
-var reportForms = function reportForms(resolve) {
-  return require(['@/components/reportForms'], resolve);
 };
 
 Vue.use(Router);
@@ -56,7 +40,7 @@ export default new Router({
     path: '/noChildReport',
     name: 'noChildReport',
     component: noChildReport
-  }, {
+  },{
     path: '/lifeCycle',
     name: 'lifeCycle',
     component: lifeCycle
@@ -65,24 +49,10 @@ export default new Router({
     name: 'lazy-load',
     component: lazyLoad
   }, {
-    path: '/eCharts',
-    name: 'eCharts',
-    component: eCharts
-  }, {
     path: '/myVuex',
     name: 'myVuex',
     component: myVuex
-  }, {
-    path: '/mintUI',
-    name: 'mintUI',
-    component: mintUI
-  }],
-  scrollBehavior: function scrollBehavior(to, from, savedPosition) {
-    console.log(to);
-    console.log(from);
-    console.log(savedPosition);
-    return { x: 0, y: 0 };
-  }
+  }]
 });
 
 //# sourceMappingURL=index-compiled.js.map

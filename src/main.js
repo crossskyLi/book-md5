@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import {Button} from 'mint-ui'
+import 'mint-ui/lib/style.css'
 import App from './App'
 import router from './router'
 //状态管理
@@ -9,9 +10,11 @@ import store from './vuex/store'
 //全局定义工具箱
 import tool from './util/tool'
 //eChart
-import ECharts from 'vue-echarts/components/ECharts.vue'
+import ECharts from 'vue-echarts/components/ECharts'
 //eChart macarons 主题引入
-import 'echarts/theme/macarons'
+// import 'echarts/theme/shine'
+
+
 //按需引入echarts类型组件
 import 'echarts/lib/chart/line'
 import 'echarts/lib/chart/radar'
@@ -20,13 +23,14 @@ import 'echarts/lib/chart/radar'
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/title'
 import 'echarts/lib/component/markPoint'
+// import 'echarts/lib/component/grid'
+
+
 Vue.config.productionTip = false;
-// Vue.use(ElementUI);
-//mintUI按钮组件
 Vue.component('mt-btn', Button);
-//eChart图表组件
-Vue.component('eCharts', ECharts);
 Vue.use(tool);
+Vue.component('eCharts', ECharts);
+// Vue.prototype.$echarts = echarts 
 
 
 /* eslint-disable no-new */
@@ -35,5 +39,5 @@ new Vue({
   router,
   store,
   template: '<App/>',
-  components: {App}
+  components: { App }
 });

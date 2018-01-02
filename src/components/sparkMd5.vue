@@ -9,10 +9,10 @@
 
     <el-button @click="goBack">返回</el-button>
     <el-button @click="show">按一下</el-button>
-    <transition name="fade-in">
+    <transition name="el-fade-in">
       <div v-show="isShow" class="transition-box">.el-fade-in-linear</div>
     </transition>
-    <transition name="fade-out">
+    <transition name="el-fade-in">
       <div v-show="isShow" class="transition-box">.el-fade-in</div>
     </transition>
   </div>
@@ -34,6 +34,12 @@
       },
       show: function () {
         this.isShow = !this.isShow;
+        this.$notify({
+          title: 'It works!',
+          type: 'success',
+          message: 'We\'ve laid the ground work for you. It\'s time for you to build something epic!',
+          duration: 5000
+        })
       },
       goBack: function () {
         this.$router.go(-1)

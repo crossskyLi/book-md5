@@ -3,8 +3,10 @@ import qs from 'qs'
 
 // axios 配置
 axios.defaults.timeout = 5000;
-axios.defaults.baseURL = 'http://116.62.8.201:3600/';
+axios.defaults.baseURL = 'http://116.62.8.201:3600/';//生产服
+
 // axios.defaults.baseURL = 'http://192.168.0.41:3600/';//测试服
+
 //POST传参序列化
 axios.interceptors.request.use((config) => {
   // if(config.method  === 'post'){
@@ -39,19 +41,19 @@ axios.interceptors.response.use((res) => {
 export function fetch(model, url, params) {
   return new Promise((resolve, reject) => {
     let reqUrl = url;
-    // console.log(reqData)
     if (model === 'get') {
       reqUrl = reqUrl + '?' + qs.stringify(params);
+      // console.log(reqUrl);
     }
     axios[model](reqUrl, params)
-      .then(response => {
-        resolve(response.retobj);
-      }, err => {
-        reject(err);
-      })
-      .catch((error) => {
-        reject(error)
-      })
+    .then(response => {
+      resolve(response.retobj);
+    }, err => {
+      reject(err);
+    })
+    .catch((error) => {
+      reject(error)
+    })
   })
 }
 
@@ -65,27 +67,26 @@ export default {
   /**
    * 学生阅读排名
    */
-  getReadingWeeklyReport(params) {
+   getReadingWeeklyReport(params) {
     return fetch('get', '/reading/getReadingWeeklyReport', params)
   },
 
   /**
    * 学生阅读数据分析
    */
-  getReadingAnalysis(params) {
+   getReadingAnalysis(params) {
     return fetch('get', '/reading/getReadingAnalysis', params)
   },
-
   /**
    * 测试post
    */
-  testPost(params) {
+   testPost(params) {
     return fetch('post', '/reading/demo', params)
   },
   /**
    * 测试多个请求并发
    */
-  testFetchMulti: function (requestArr) {
+   testFetchMulti: function (requestArr) {
     return fetchMulti(requestArr)
   },
 }

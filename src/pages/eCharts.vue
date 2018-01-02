@@ -42,7 +42,7 @@
         this.seconds--;
         if (this.seconds === 0) {
           clearTimeout(timer)
-          bar.hideLoading()
+          bar.hideLoading();
           bar.mergeOptions(barAsync)
         }
       }, 1000)

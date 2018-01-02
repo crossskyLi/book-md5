@@ -14,4 +14,5 @@
 <style lang="less">
   @import 'common/less/base.less';
   @import 'common/less/var.less';
+  @import 'assets/icon/iconfont.css';
 </style>

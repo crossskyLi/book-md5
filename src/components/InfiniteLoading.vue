@@ -14,21 +14,21 @@
   </div>
 </template>
 <script>
-  /* eslint-disable no-console */
-  import Spinner from './Spinner';
+/* eslint-disable no-console */
+import Spinner from './Spinner';
 
   const LOOP_CHECK_TIMEOUT = 1000; // the timeout for check infinite loop
   const LOOP_CHECK_MAX_CALLS = 10; // the maximum number of continuous calls
   const WARNINGS = {
     STATE_CHANGER: [
-      '[Vue-infinite-loading warn]: emit `loaded` and `complete` event through component instance of `$refs` may cause error, so it will be deprecated soon, please use the `$state` argument instead (`$state` just the special `$event` variable):',
-      '\ntemplate:',
-      '<infinite-loading @infinite="infiniteHandler"></infinite-loading>',
-      `
-  script:
-  ...
-  infiniteHandler($state) {
-    ajax('https://www.example.com/api/news')
+    '[Vue-infinite-loading warn]: emit `loaded` and `complete` event through component instance of `$refs` may cause error, so it will be deprecated soon, please use the `$state` argument instead (`$state` just the special `$event` variable):',
+    '\ntemplate:',
+    '<infinite-loading @infinite="infiniteHandler"></infinite-loading>',
+    `
+    script:
+    ...
+    infiniteHandler($state) {
+      ajax('https://www.example.com/api/news')
       .then((res) => {
         if (res.data.length) {
           $state.loaded();
@@ -36,25 +36,25 @@
           $state.complete();
         }
       });
-  }
-  ...`,
-      '',
-      'more details: https://github.com/PeachScript/vue-infinite-loading/issues/57#issuecomment-324370549',
+    }
+    ...`,
+    '',
+    'more details: https://github.com/PeachScript/vue-infinite-loading/issues/57#issuecomment-324370549',
     ].join('\n'),
     INFINITE_EVENT: '[Vue-infinite-loading warn]: `:on-infinite` property will be deprecated soon, please use `@infinite` event instead.',
   };
   const ERRORS = {
     INFINITE_LOOP: [
-      `[Vue-infinite-loading error]: executed the callback function more than ${LOOP_CHECK_MAX_CALLS} times for a short time, it looks like searched a wrong scroll wrapper that doest not has fixed height or maximum height, please check it. If you want to force to set a element as scroll wrapper ranther than automatic searching, you can do this:`,
-      `
-  <!-- add a special attribute for the real scroll wrapper -->
-  <div infinite-wrapper>
+    `[Vue-infinite-loading error]: executed the callback function more than ${LOOP_CHECK_MAX_CALLS} times for a short time, it looks like searched a wrong scroll wrapper that doest not has fixed height or maximum height, please check it. If you want to force to set a element as scroll wrapper ranther than automatic searching, you can do this:`,
+    `
+    <!-- add a special attribute for the real scroll wrapper -->
+    <div infinite-wrapper>
     ...
     <!-- set force-use-infinite-wrapper to true -->
     <infinite-loading force-use-infinite-wrapper="true"></infinite-loading>
-  </div>
-      `,
-      'more details: https://github.com/PeachScript/vue-infinite-loading/issues/55#issuecomment-316934169',
+    </div>
+    `,
+    'more details: https://github.com/PeachScript/vue-infinite-loading/issues/55#issuecomment-316934169',
     ].join('\n'),
   };
 
@@ -171,7 +171,7 @@
       /**
        * change state for this component, pass to the callback
        */
-      this.stateChanger = {
+       this.stateChanger = {
         loaded: () => {
           this.$emit('$InfiniteLoading:loaded', { target: this });
         },
@@ -186,7 +186,7 @@
     /**
      * To adapt to keep-alive feature, but only work on Vue 2.2.0 and above, see: https://vuejs.org/v2/api/#keep-alive
      */
-    deactivated() {
+     deactivated() {
       this.isLoading = false;
       this.scrollParent.removeEventListener('scroll', this.scrollHandler);
     },
@@ -207,13 +207,13 @@
           (this.$el.offsetWidth + this.$el.offsetHeight) > 0) {
           this.isLoading = true;
 
-          if (typeof this.onInfinite === 'function') {
-            this.onInfinite.call(null, this.stateChanger);
-          } else {
-            this.$emit('infinite', this.stateChanger);
-          }
+        if (typeof this.onInfinite === 'function') {
+          this.onInfinite.call(null, this.stateChanger);
+        } else {
+          this.$emit('infinite', this.stateChanger);
+        }
 
-          if (isContinuousCall && !this.forceUseInfiniteWrapper && !this.infiniteLoopChecked) {
+        if (isContinuousCall && !this.forceUseInfiniteWrapper && !this.infiniteLoopChecked) {
             // check this component whether be in an infinite loop if it is not checked
             // more details: https://github.com/PeachScript/vue-infinite-loading/issues/55#issuecomment-316934169
             this.continuousCallTimes += 1; // save the times of calls
@@ -242,13 +242,13 @@
 
         if (this.direction === 'top') {
           distance = isNaN(this.scrollParent.scrollTop) ?
-            this.scrollParent.pageYOffset :
-            this.scrollParent.scrollTop;
+          this.scrollParent.pageYOffset :
+          this.scrollParent.scrollTop;
         } else {
           const infiniteElmOffsetTopFromBottom = this.$el.getBoundingClientRect().top;
           const scrollElmOffsetTopFromBottom = this.scrollParent === window ?
-            window.innerHeight :
-            this.scrollParent.getBoundingClientRect().bottom;
+          window.innerHeight :
+          this.scrollParent.getBoundingClientRect().bottom;
 
           distance = infiniteElmOffsetTopFromBottom - scrollElmOffsetTopFromBottom;
         }
@@ -280,8 +280,8 @@
       }
     },
   };
-</script>
-<style lang="less" scoped>
+  </script>
+  <style lang="less" scoped>
   @deep: ~'>>>';
 
   .infinite-loading-container {
@@ -304,5 +304,6 @@
     font-size: 14px;
     text-align: center;
     padding: 10px 0;
+    margin-bottom: 18px;
   }
-</style>
+  </style>
