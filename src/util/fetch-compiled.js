@@ -4,7 +4,9 @@ import qs from 'qs';
 
 // axios 配置
 axios.defaults.timeout = 5000;
-axios.defaults.baseURL = 'http://192.168.0.41:3600/';
+axios.defaults.baseURL = 'http://116.62.8.201:3600/'; //生产服
+
+// axios.defaults.baseURL = 'http://192.168.0.41:3600/';//测试服
 
 //POST传参序列化
 axios.interceptors.request.use(function (config) {
@@ -40,9 +42,9 @@ axios.interceptors.response.use(function (res) {
 export function fetch(model, url, params) {
   return new _Promise(function (resolve, reject) {
     var reqUrl = url;
-    // console.log(reqData)
     if (model === 'get') {
       reqUrl = reqUrl + '?' + qs.stringify(params);
+      // console.log(reqUrl);
     }
     axios[model](reqUrl, params).then(function (response) {
       resolve(response.retobj);
@@ -60,12 +62,19 @@ export function fetchMulti(requestArr) {
 
 export default {
   /**
-   * 用户登录
+   * 学生阅读排名
    */
   getReadingWeeklyReport: function getReadingWeeklyReport(params) {
     return fetch('get', '/reading/getReadingWeeklyReport', params);
   },
 
+
+  /**
+   * 学生阅读数据分析
+   */
+  getReadingAnalysis: function getReadingAnalysis(params) {
+    return fetch('get', '/reading/getReadingAnalysis', params);
+  },
 
   /**
    * 测试post

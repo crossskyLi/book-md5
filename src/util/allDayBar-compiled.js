@@ -1,6 +1,6 @@
 import _defineProperty from 'babel-runtime/helpers/defineProperty';
 
-var _yAxis;
+var _tooltip, _yAxis;
 
 var echarts = require('echarts/lib/echarts');
 
@@ -14,24 +14,22 @@ export var allDayBarInitial = {
     bottom: 20,
     left: 18
   },
-  tooltip: {
+  tooltip: (_tooltip = {
     trigger: 'axis',
     axisPointer: {
       type: 'line',
       lineStyle: {
         width: 0.5,
         color: "#9b9b9b"
-      },
-      z: 0
-    },
-    formatter: function formatter(params) {
-      var res = '<div><p>' + params[0].name + '</p></div>';
-      for (var i = 0; i < params.length; i++) {
-        res += '<p>' + params[i].data + '分钟' + '</p>';
       }
-      return res;
     }
-  },
+  }, _defineProperty(_tooltip, 'axisPointer', { z: 0 }), _defineProperty(_tooltip, 'formatter', function formatter(params) {
+    var res = '<div><p>' + params[0].name + '</p></div>';
+    for (var i = 0; i < params.length; i++) {
+      res += '<p>' + params[i].data + '分钟' + '</p>';
+    }
+    return res;
+  }), _tooltip),
   xAxis: {
     type: 'category',
     boundaryGap: false,
